@@ -1,6 +1,6 @@
 #Requires -Version 5.1
 <#
-Compile les 3 plugins SKSE de RSE - Shoulder Or Saddle (patch 1.7.104 Fix).
+Compile les 3 plugins SKSE de RSE - Shoulder Or Saddle - Unofficial Patch Fix.
 Ne touche ni au jeu ni à MO2, sauf si -OutputFolder est fourni.
 VCPKG_ROOT : dépôt vcpkg bootstrappé (variable d'environnement, ou local.paths.ps1). VS_PATH optionnel.
 #>

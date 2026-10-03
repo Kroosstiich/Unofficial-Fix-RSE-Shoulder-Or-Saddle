@@ -1,4 +1,4 @@
-# Unofficial Fix - RSE - Shoulder Or Saddle (1.7.104)
+# RSE - Shoulder Or Saddle - Unofficial Patch Fix
 
 Source code of an **unofficial patch** for [RSE - Shoulder Or Saddle](https://www.nexusmods.com/skyrimspecialedition/mods/170232)
 by **Hunk92** (original source: [Hunk92/RSE-Shoulder-Or-Saddle](https://github.com/Hunk92/RSE-Shoulder-Or-Saddle)).

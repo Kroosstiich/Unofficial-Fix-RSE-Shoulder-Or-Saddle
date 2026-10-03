@@ -1,8 +1,8 @@
 #Requires -Version 5.1
 <#
-Assemble l'archive FOMOD du patch « RSE - Shoulder Or Saddle - 1.7.104 Fix » à partir des sorties de build.
+Assemble l'archive FOMOD du patch « RSE - Shoulder Or Saddle - Unofficial Patch Fix » à partir des sorties de build.
 Prérequis : build.ps1 (DLL) et Papyrus\compile.ps1 (scripts) déjà exécutés.
-Sortie : release\RSE - Shoulder Or Saddle - 1.7.104 Fix-<version>.7z
+Sortie : release\RSE - Shoulder Or Saddle - Unofficial Patch Fix-<version>.7z
 #>
 param([string]$Version = "1.0.0")
 $ErrorActionPreference = "Stop"
@@ -49,7 +49,7 @@ $json = "SKSE\Plugins\DynamicStringDistributor\RSE-ShoulderOrSaddle.esp\french.d
 Copy-To (Join-Path $Root "Translation\French\$json") (Join-Path $Stage "French\$json")
 
 # Archive
-$archive = Join-Path $Root "release\RSE - Shoulder Or Saddle - 1.7.104 Fix-$Version.7z"
+$archive = Join-Path $Root "release\RSE - Shoulder Or Saddle - Unofficial Patch Fix-$Version.7z"
 if (Test-Path $archive) { Remove-Item -Force $archive }
 & $SevenZip a -t7z -mx=9 $archive "$Stage\*" | Out-Null
 if ($LASTEXITCODE -ne 0) { throw "Échec de la création de l'archive ($LASTEXITCODE)." }
