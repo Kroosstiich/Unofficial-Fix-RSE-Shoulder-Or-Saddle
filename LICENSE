@@ -1,0 +1,27 @@
+Ownership and permissions
+=========================
+
+The code in this repository is not my own work. It is a modified copy of parts of
+"RSE - Shoulder Or Saddle", created by Hunk92:
+
+  - Nexus Mods: https://www.nexusmods.com/skyrimspecialedition/mods/170232
+  - Original source: https://github.com/Hunk92/RSE-Shoulder-Or-Saddle
+
+All rights to the original code, scripts and mod remain with Hunk92. The original source does not state a licence;
+the terms that apply are the permissions given by the author on the Nexus Mods page of the mod, which explicitly
+allow modifying its files and releasing bug fixes.
+
+This repository only contains the files modified by the unofficial patch, with the fixes clearly marked
+("FIX patch" comments). It is published so that anyone can check what was changed, and so that the original
+author can freely take these fixes back into the mod.
+
+The French translation file in Translation/French/ is a repaired copy of the original French translation of the
+mod; its content belongs to its translator.
+
+Third-party components
+----------------------
+
+The SKSE plugins are built with CommonLibSSE-NG (https://github.com/alandtse/CommonLibSSE-NG), licensed under
+GPL-3.0-or-later with a Modding Exception. Its licence applies to that library and is not changed by this notice.
+
+Patch modifications: Kroosstii.

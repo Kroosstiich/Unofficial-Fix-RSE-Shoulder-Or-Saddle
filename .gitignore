@@ -1,0 +1,14 @@
+# Notes de travail et configuration locale
+.claude/
+CLAUDE.md
+local.paths.ps1
+
+# Fichiers d'origine conservés pour comparaison (non redistribués)
+_original/
+
+# Sorties de compilation et de publication
+build/
+release/
+Papyrus/out/
+Papyrus/out-addon/
+Papyrus/out-options/

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+
+  <moduleName>RSE - Shoulder Or Saddle - 1.7.104 Fix</moduleName>
+
+  <!-- Toujours installés : les 3 DLL recompilées et les scripts corrigés (avec leurs sources). -->
+  <requiredInstallFiles>
+    <folder source="Core" destination="" priority="0" />
+  </requiredInstallFiles>
+
+  <installSteps order="Explicit">
+
+    <!-- Étape 1 : la langue choisie pose le drapeau « language », qui décide de la langue des étapes suivantes. -->
+    <installStep name="Language / Langue">
+      <optionalFileGroups order="Explicit">
+        <group name="Language / Langue" type="SelectExactlyOne">
+          <plugins order="Explicit">
+
+            <plugin name="English">
+              <description>Unofficial fix for RSE - Shoulder Or Saddle 1.4. The original mod is required.
+
+Installs the fix in English. Nothing else is added.
+
+Pour le français, choisissez la deuxième option, sauf si vous souhaitez garder la version anglaise.</description>
+              <files />
+              <conditionFlags>
+                <flag name="language">en</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Recommended" />
+              </typeDescriptor>
+            </plugin>
+
+            <plugin name="Français">
+              <description>This part is for the French version.
+
+Correctif non officiel de RSE - Shoulder Or Saddle 1.4. Le mod d'origine est obligatoire.
+
+Ajoute une copie corrigée du fichier de traduction française. Le fichier d'origine contient une erreur JSON qui fait ignorer toute la traduction : les sorts et les objets restent en anglais.
+
+NÉCESSITE : la traduction française d'origine « DSD - Traduction francaise » (page de RSE - Shoulder Or Saddle) et Dynamic String Distributor.
+
+Placez ce correctif SOUS la traduction française dans l'ordre des mods.</description>
+              <files>
+                <folder source="French" destination="" priority="1" />
+              </files>
+              <conditionFlags>
+                <flag name="language">fr</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional" />
+              </typeDescriptor>
+            </plugin>
+
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+
+    <!-- Étape 2, version anglaise -->
+    <installStep name="Camera">
+      <visible>
+        <dependencies operator="And">
+          <flagDependency flag="language" value="en" />
+        </dependencies>
+      </visible>
+      <optionalFileGroups order="Explicit">
+        <group name="Camera when you pick someone up" type="SelectExactlyOne">
+          <plugins order="Explicit">
+
+            <plugin name="Third person (recommended)">
+              <description>Switches the camera to third person at the moment you pick someone up, so the pick-up and carry animations are visible.
+
+The mod has no first-person carry animation: in first person, picking someone up looks like the game froze for a few seconds.
+
+You can switch back to first person at any time afterwards.</description>
+              <files>
+                <folder source="Camera\ThirdPerson" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <type name="Recommended" />
+              </typeDescriptor>
+            </plugin>
+
+            <plugin name="Keep first person">
+              <description>Leaves the camera untouched when you pick someone up.
+
+Not recommended: there is no first-person carry animation.</description>
+              <files>
+                <folder source="Camera\FirstPerson" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <type name="Optional" />
+              </typeDescriptor>
+            </plugin>
+
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+
+    <!-- Étape 2, version française -->
+    <installStep name="Caméra">
+      <visible>
+        <dependencies operator="And">
+          <flagDependency flag="language" value="fr" />
+        </dependencies>
+      </visible>
+      <optionalFileGroups order="Explicit">
+        <group name="Caméra au moment de porter quelqu'un" type="SelectExactlyOne">
+          <plugins order="Explicit">
+
+            <plugin name="3e personne (recommandé)">
+              <description>Passe la caméra en 3e personne au moment où vous portez quelqu'un, pour que les animations de ramassage et de portage soient visibles.
+
+Le mod n'a pas d'animation de portage en 1re personne : en vue subjective, le ramassage ressemble à un blocage de quelques secondes.
+
+Vous pouvez ensuite revenir en 1re personne à tout moment.</description>
+              <files>
+                <folder source="Camera\ThirdPerson" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <type name="Recommended" />
+              </typeDescriptor>
+            </plugin>
+
+            <plugin name="Garder la 1re personne">
+              <description>Ne modifie pas la caméra au moment où vous portez quelqu'un.
+
+Déconseillé : il n'existe pas d'animation de portage en 1re personne.</description>
+              <files>
+                <folder source="Camera\FirstPerson" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <type name="Optional" />
+              </typeDescriptor>
+            </plugin>
+
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+
+  </installSteps>
+
+  <!-- Détection automatique de l'extension « ShoulderCarryState - female » : variante adaptée du script de portage. -->
+  <conditionalFileInstalls>
+    <patterns>
+      <pattern>
+        <dependencies operator="And">
+          <fileDependency file="ShoulderCarryState-Female.esp" state="Active" />
+        </dependencies>
+        <files>
+          <folder source="PickUp\FemaleAddon" destination="" priority="2" />
+        </files>
+      </pattern>
+      <pattern>
+        <dependencies operator="Or">
+          <fileDependency file="ShoulderCarryState-Female.esp" state="Inactive" />
+          <fileDependency file="ShoulderCarryState-Female.esp" state="Missing" />
+        </dependencies>
+        <files>
+          <folder source="PickUp\Original" destination="" priority="2" />
+        </files>
+      </pattern>
+    </patterns>
+  </conditionalFileInstalls>
+
+</config>

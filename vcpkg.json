@@ -1,0 +1,19 @@
+{
+  "name": "rse-shoulder-or-saddle-fix",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "directxmath",
+    "directxtk",
+    "fmt",
+    "nlohmann-json",
+    "rapidcsv",
+    "simpleini",
+    "spdlog",
+    "toml11",
+    "xbyak",
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+[
+  {
+    "form_id": "00000856|RSE-ShoulderOrSaddle.esp",
+    "type": "SPEL FULL",
+    "string": "RSE - SkyPrompt"
+  }
+,
+  {
+    "form_id": "00000838|RSE-ShoulderOrSaddle.esp",
+    "type": "SPEL FULL",
+    "string": "RSE - Où es-tu ?"
+  }
+,
+  {
+    "form_id": "00000834|RSE-ShoulderOrSaddle.esp",
+    "type": "SPEL FULL",
+    "string": "RSE - Épaule ou Selle"
+  }
+,
+  {
+    "form_id": "00000801|RSE-ShoulderOrSaddle.esp",
+    "type": "PERK FULL",
+    "string": "Monture partagée avec compagnon"
+  }
+,
+  {
+    "form_id": "00000801|RSE-ShoulderOrSaddle.esp",
+    "type": "PERK DESC",
+    "string": "Monter à cheval avec un compagnon"
+  }
+,
+  {
+    "form_id": "0000083A|RSE-ShoulderOrSaddle.esp",
+    "type": "MISC FULL",
+    "string": "Médaillon de cheval pour companion"
+  }
+,
+  {
+    "form_id": "00000839|RSE-ShoulderOrSaddle.esp",
+    "type": "MGEF FULL",
+    "string": "Au cas où quelqu'un se serait perdu lors d'une transition."
+  }
+,
+  {
+    "form_id": "00000835|RSE-ShoulderOrSaddle.esp",
+    "type": "MGEF FULL",
+    "string": "Porter quelqu'un et charger la monture"
+  }
+,
+  {
+    "form_id": "0000080E|RSE-ShoulderOrSaddle.esp",
+    "type": "MGEF FULL",
+    "string": "SkyPrompt display active effect"
+  }
+,
+  {
+    "form_id": "00000883|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG DESC",
+    "string": "/!\\ L'implémentation de SkyPrompt repose sur l'Event de script « OnCrosshairRefChange ». Cet Event peut provoquer le bug Papyrus frame stack dans certaines conditions."
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 0,
+    "string": "Monte avec moi"
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 1,
+    "string": "Transporter sur le cheval (Auto)"
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 2,
+    "string": "Sur mon épaule"
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 3,
+    "string": "Dans mes bras"
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 4,
+    "string": "Sur mes épaules"
+  }
+,
+  {
+    "form_id": "00000876|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 5,
+    "string": "Quitter"
+  }
+,
+  {
+    "form_id": "00000826|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 0,
+    "string": "Va à pied."
+  }
+,
+  {
+    "form_id": "00000826|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 1,
+    "string": "Le porter ?"
+  }
+,
+  {
+    "form_id": "00000826|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 2,
+    "string": "Quitter"
+  }
+,
+  {
+    "form_id": "00000818|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG FULL",
+    "string": "Trajet ponctuel"
+  }
+,
+  {
+    "form_id": "00000818|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 0,
+    "string": "Chevauche avec moi, mon ami."
+  }
+,
+  {
+    "form_id": "00000818|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 1,
+    "string": "Mauvais jour pour les scélérat ! (Auto)"
+  }
+,
+  {
+    "form_id": "00000818|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 2,
+    "string": "Je vais te porter ! (Manuel)"
+  }
+,
+  {
+    "form_id": "00000818|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 3,
+    "string": "Quitter"
+  }
+,
+  {
+    "form_id": "0000080A|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG DESC",
+    "string": "Avez-vous changé d'avis ?"
+  }
+,
+  {
+    "form_id": "0000080A|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 0,
+    "string": "Continue à pied désormais."
+  }
+,
+  {
+    "form_id": "0000080A|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 1,
+    "string": "Quitter"
+  }
+,
+  {
+    "form_id": "00000809|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG DESC",
+    "string": "Vous pouvez charger temporairement ce cadavre sur votre monture."
+  }
+,
+  {
+    "form_id": "00000809|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 0,
+    "string": "Garder les mains libres (Auto)"
+  }
+,
+  {
+    "form_id": "00000809|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 1,
+    "string": "Porter le cadavre (Manuel)"
+  }
+,
+  {
+    "form_id": "00000809|RSE-ShoulderOrSaddle.esp",
+    "type": "MESG ITXT",
+    "index": 2,
+    "string": "Laisser ici (Quitter)"
+  }
+,
+  {
+    "form_id": "00000880|RSE-ShoulderOrSaddle.esp",
+    "type": "INFO RNAM",
+    "string": "Rien."
+  }
+,
+  {
+    "form_id": "00000878|RSE-ShoulderOrSaddle.esp",
+    "type": "INFO NAM1",
+    "index": 0,
+    "string": "..."
+  }
+,
+  {
+    "form_id": "00000878|RSE-ShoulderOrSaddle.esp",
+    "type": "INFO RNAM",
+    "string": "A propos de nous (RSE)"
+  }
+,
+  {
+    "form_id": "00000873|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Il est temps d'atterrir."
+  }
+,
+  {
+    "form_id": "00000872|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Je te dépose."
+  }
+,
+  {
+    "form_id": "00000867|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Tu veut faire l'avion ?"
+  }
+,
+  {
+    "form_id": "00000866|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Je veux te porter dans mes bras"
+  }
+,
+  {
+    "form_id": "0000081E|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Toi tu marches, moi je chevauche !"
+  }
+,
+  {
+    "form_id": "0000081C|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Je te chargerai sur mon cheval plus tard, scélérat!"
+  }
+,
+  {
+    "form_id": "00000816|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "J'ai d'autres affaires à régler. Tu continue à pied."
+  }
+,
+  {
+    "form_id": "00000812|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Allons faire un tour ensemble."
+  }
+,
+  {
+    "form_id": "0000080B|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Désolé mon ami. Tu continue à pied."
+  }
+,
+  {
+    "form_id": "00000805|RSE-ShoulderOrSaddle.esp",
+    "type": "DIAL FULL",
+    "string": "Partage toujours ma monture."
+  }
+]
