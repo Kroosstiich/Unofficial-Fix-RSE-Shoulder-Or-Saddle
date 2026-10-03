@@ -9,6 +9,18 @@ It requires the original mod: it only replaces its three SKSE DLLs and some of i
 This repository exists so that anyone can check exactly what was changed.
 **Hunk92: feel free to take any of these fixes and include them in your own mod.**
 
+## AI disclosure
+
+This patch was made with generative AI (**Claude**, by Anthropic):
+
+- **Code**: the analysis of the original mod and the changes to the C++ and Papyrus sources in this repository were written
+  by the AI, as well as the build and packaging scripts.
+- **Text**: this README, the installer texts and the Nexus Mods description were written with the AI.
+- **Human part (Kroosstii)**: defining the goals, deciding what to fix or keep, testing every change in game on
+  Skyrim 1.7.104, and reporting the results and logs that guided each fix.
+
+The Nexus Mods page is tagged *AI-Generated Content* and *AI Media*, as required by the Nexus Mods file submission guidelines.
+
 ## What is in this repository
 
 Only the files touched by the patch. The original mod's other files (plugin, animations, untouched scripts, interface)
