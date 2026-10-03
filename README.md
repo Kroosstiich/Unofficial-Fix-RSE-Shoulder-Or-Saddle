@@ -6,6 +6,8 @@ by **Hunk92** (original source: [Hunk92/RSE-Shoulder-Or-Saddle](https://github.c
 The patch makes RSE - Shoulder Or Saddle 1.4 work on Skyrim 1.7.104 and fixes many bugs of the original mod.
 It requires the original mod: it only replaces its three SKSE DLLs and some of its Papyrus scripts.
 
+Download: [RSE - Shoulder Or Saddle - Unofficial Patch Fix](https://www.nexusmods.com/skyrimspecialedition/mods/193884) on Nexus Mods.
+
 This repository exists so that anyone can check exactly what was changed.
 **Hunk92: feel free to take any of these fixes and include them in your own mod.**
 
@@ -80,7 +82,8 @@ Requirements: Visual Studio with the C++ tools (MSVC 14.44), vcpkg, 7-Zip, Pytho
 
 - **Hunk92** (uploaded by slevin92): RSE - Shoulder Or Saddle.
 - Original credits of the mod: Musjes (Ride Sharing), shadowman2777 and Elsawirr (animations).
-- giamel: ShoulderCarryState - female.
+- giamel: [ShoulderCarryState - female](https://www.nexusmods.com/skyrimspecialedition/mods/171028).
+  `Papyrus/AddonFemale/Source/rshPickUpScript.psc` contains part of giamel's code, included with their permission.
 - alandtse and the CommonLibSSE-NG contributors.
 
 Patch by Kroosstii. See [LICENSE](LICENSE).
