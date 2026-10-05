@@ -142,6 +142,94 @@ Déconseillé : il n'existe pas d'animation de portage en 1re personne.</descrip
       </optionalFileGroups>
     </installStep>
 
+    <!-- Étape 3, version anglaise : compatibilité. Sofia cochée d'office si SofiaFollower.esp est actif. -->
+    <installStep name="Compatibility">
+      <visible>
+        <dependencies operator="And">
+          <flagDependency flag="language" value="en" />
+        </dependencies>
+      </visible>
+      <optionalFileGroups order="Explicit">
+        <group name="Follower mods" type="SelectAny">
+          <plugins order="Explicit">
+
+            <plugin name="Sofia - &quot;Always share my ride&quot; dialogue">
+              <description>For Sofia - The Funny Fully Voiced Follower.
+
+Sofia uses her own follower system, so the RSE dialogue "Always share my ride" (under "About us (RSE)") never shows for her. This option installs a small ESL-flagged plugin, RSE-SofiaDialogueFix.esp, that makes it show while she follows you.
+
+Without this option, use the medallion instead: craft it at the forge and drop it in Sofia's inventory.
+
+Her own horse is handled automatically in both cases: she no longer rides it while sitting behind you, and gets it back when she gets off.
+
+REQUIRES Sofia (SofiaFollower.esp). Without Sofia, the game will not start: leave this option unchecked.</description>
+              <files>
+                <folder source="Compat\Sofia" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <dependencyType>
+                  <defaultType name="Optional" />
+                  <patterns>
+                    <pattern>
+                      <dependencies operator="And">
+                        <fileDependency file="SofiaFollower.esp" state="Active" />
+                      </dependencies>
+                      <type name="Recommended" />
+                    </pattern>
+                  </patterns>
+                </dependencyType>
+              </typeDescriptor>
+            </plugin>
+
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+
+    <!-- Étape 3, version française -->
+    <installStep name="Compatibilité">
+      <visible>
+        <dependencies operator="And">
+          <flagDependency flag="language" value="fr" />
+        </dependencies>
+      </visible>
+      <optionalFileGroups order="Explicit">
+        <group name="Mods de followers" type="SelectAny">
+          <plugins order="Explicit">
+
+            <plugin name="Sofia - réplique « Partage toujours ma monture »">
+              <description>Pour Sofia - The Funny Fully Voiced Follower.
+
+Sofia utilise son propre système de follower : la réplique de RSE « Partage toujours ma monture » (sous « About us (RSE) ») ne s'affiche jamais pour elle. Cette option installe un petit plugin flaggé ESL, RSE-SofiaDialogueFix.esp, qui l'affiche tant qu'elle vous suit.
+
+Sans cette option, utilisez le médaillon : fabriquez-le à la forge et mettez-le dans l'inventaire de Sofia.
+
+Son propre cheval est géré automatiquement dans les deux cas : elle ne le monte plus quand elle est assise derrière vous, et le retrouve quand elle descend.
+
+NÉCESSITE Sofia (SofiaFollower.esp). Sans Sofia, le jeu ne démarre pas : laissez cette option décochée.</description>
+              <files>
+                <folder source="Compat\Sofia" destination="" priority="1" />
+              </files>
+              <typeDescriptor>
+                <dependencyType>
+                  <defaultType name="Optional" />
+                  <patterns>
+                    <pattern>
+                      <dependencies operator="And">
+                        <fileDependency file="SofiaFollower.esp" state="Active" />
+                      </dependencies>
+                      <type name="Recommended" />
+                    </pattern>
+                  </patterns>
+                </dependencyType>
+              </typeDescriptor>
+            </plugin>
+
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+
   </installSteps>
 
   <!-- Détection automatique de l'extension « ShoulderCarryState - female » : variante adaptée du script de portage. -->

@@ -12,3 +12,5 @@ release/
 Papyrus/out/
 Papyrus/out-addon/
 Papyrus/out-options/
+Plugin/out/
+AGENTS.md

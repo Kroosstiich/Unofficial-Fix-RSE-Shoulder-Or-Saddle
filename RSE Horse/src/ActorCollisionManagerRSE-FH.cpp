@@ -503,6 +503,7 @@ void ActorCollisionManager::ResetForLoad() {
         std::lock_guard lock(g_attachmentLock);
         GetSingleton()->GetAttachmentData().Reset();
     }
+    g_attachedActorID = 0;  // FIX patch (N-26)
     ManagerCallPlayerActif = false;
     {
         std::lock_guard lock(g_stateMutex);
@@ -550,10 +551,20 @@ RE::BSEventNotifyControl ActorCollisionManager::ProcessEvent(
 // l'entourait de SEH (exceptions du moteur avalées) et journalisait à chaque frame.
 // Désormais le mouvement d'origine est toujours appliqué ; seul l'acteur attaché est traité.
 
+// FIX patch (N-26) : vrai pour l'acteur actuellement attaché. Son IA (paquets « Speak » : salutations,
+// conversations) le ferait marcher ; UpdateActorPosition le remet sur la selle à chaque frame et la lutte
+// entre les deux pousse le cheval. Sa position ne dépend que de l'attachement : son mouvement est ignoré.
+static bool IsAttachedActor(const RE::Actor* a_actor) {
+    const auto attachedID = g_attachedActorID.load(std::memory_order_relaxed);
+    return attachedID != 0 && a_actor && a_actor->GetFormID() == attachedID;
+}
+
 void ActorCollisionManager::Hook_ApplyMovementDelta(RE::Actor* a_actor, float a_delta) {
     // Chemin rapide : aucun attachement en attente de traitement → comportement vanilla
     if (!ManagerCallPlayerActif) {
-        _applyMovementDelta(a_actor, a_delta);
+        if (!IsAttachedActor(a_actor)) {
+            _applyMovementDelta(a_actor, a_delta);
+        }
         return;
     }
 
@@ -583,7 +594,9 @@ void ActorCollisionManager::Hook_ApplyMovementDelta(RE::Actor* a_actor, float a_
         SKSE::log::warn("ActorB est null, impossible de désactiver la collision");
     }
 
-    _applyMovementDelta(a_actor, a_delta);
+    if (!IsAttachedActor(a_actor)) {
+        _applyMovementDelta(a_actor, a_delta);
+    }
 }
 
 void ActorCollisionManager::Hook_Collision(RE::Actor* a_actor) {

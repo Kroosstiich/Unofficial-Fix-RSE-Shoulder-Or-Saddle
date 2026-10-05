@@ -7,7 +7,7 @@ Function Fragment_1(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 akSpeaker.removeitem(rshHorseToken, 999, true)
-rshCoreScript.NFFNoHorse(akSpeaker, false) ; FIX patch (compat NFF) : rend le cheval NFF (si RSE l'avait retiré)
+rshCoreScript.CompatNoHorse(akSpeaker, false) ; FIX patch (compat NFF, Sofia) : rend le cheval NFF ou Sofia (si RSE l'avait retiré)
 ;END CODE
 EndFunction
 ;END FRAGMENT

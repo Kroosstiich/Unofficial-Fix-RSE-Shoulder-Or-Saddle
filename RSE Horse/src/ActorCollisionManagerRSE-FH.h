@@ -1,5 +1,6 @@
 #pragma once
 
+#include <atomic>
 #include <chrono>
 #include <unordered_map>
 #include <unordered_set>
@@ -29,6 +30,10 @@ struct AttachmentData {
 // FIX patch (C-12) : StartAttachment/StopAttachment (thread de la VM Papyrus) et le hook de mise à jour
 // (thread principal) accèdent aux mêmes données.
 inline std::mutex g_attachmentLock;
+
+// FIX patch (N-26) : FormID de l'acteur attaché (0 = aucun). Lu par le hook de mouvement à chaque frame,
+// sans verrou : l'IA du passager ne doit pas le déplacer pendant que UpdateActorPosition le replace sur la selle.
+inline std::atomic<RE::FormID> g_attachedActorID{0};
 
 class ActorCollisionManager : public RE::BSTEventSink<RE::TESCellAttachDetachEvent> {
 public:

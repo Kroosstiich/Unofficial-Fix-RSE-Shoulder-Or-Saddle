@@ -7,7 +7,7 @@ Function Fragment_6(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 akSpeaker.additem(rshHorseToken, 1, true)
-rshCoreScript.NFFNoHorse(akSpeaker, true) ; FIX patch (compat NFF) : partage permanent → pas de cheval NFF
+rshCoreScript.CompatNoHorse(akSpeaker, true) ; FIX patch (compat NFF, Sofia) : partage permanent → pas de cheval NFF ni Sofia
 ;END CODE
 EndFunction
 ;END FRAGMENT

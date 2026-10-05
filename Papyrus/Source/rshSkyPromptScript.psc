@@ -38,6 +38,11 @@ Event OnInit() ; This event will run once, when the script is initialized
 EndEvent
 
 Event OnSkyPromptEvent(Int clientID, Int eventType, Int eventID, Int actionID, float dx, float dy, float progress)
+	; FIX patch (P-10) : seul kAccepted (0) est traité. L'API SkyPrompt définit aussi kDeclined, kRemovedByMod,
+	; kTimingOut, kTimeout, kDown, kUp et kMove ; les 5 appels natifs ci-dessous étaient faits pour chacun d'eux.
+	if eventType != 0
+		return
+	endif
 	Actor bandit = FollowerBandit.GetActorRef()
 	Actor banditcarried = FollowerBanditCarried.GetActorRef()
 	Actor player = Game.GetPlayer()

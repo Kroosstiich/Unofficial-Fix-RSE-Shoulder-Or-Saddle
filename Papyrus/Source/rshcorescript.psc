@@ -162,7 +162,7 @@ Function FollowerPart(Actor follower, Actor Playerhorse)
 
 	mountedReversed = false
 
-	NFFNoHorse(follower, true)	; FIX patch (compat NFF) : pas de second cheval NFF pendant le duo
+	CompatNoHorse(follower, true)	; FIX patch (compat NFF, Sofia) : pas de second cheval pendant le duo
 	follower.AddItem(rshNPCOnPlayerHorseToken)
 	
 	if follower.GetDistance(Game.GetPlayer()) > 2000
@@ -405,7 +405,7 @@ Function Dismount(bool quickStop)
 			follower.removeitem(rshNPCOnPlayerHorseToken, 999, true)
 			; FIX patch (compat NFF) : les followers « always share » (médaillon/dialogue) restent exclus des chevaux NFF
 			if (follower.GetItemCount(rshHorseToken) <= 0) && (follower.GetItemCount(rshHorseTokenPlayable) <= 0)
-				NFFNoHorse(follower, false)
+				CompatNoHorse(follower, false)
 			endif
 			if (playerhorse != None)	; FIX patch (P-04)
 				playerhorse.removeitem(rshHorseFollowerToken, 999, true)
@@ -718,6 +718,40 @@ Function ManagerDismountReversed()
 	UnregisterForAnimationEvent(Game.GetPlayer(), "HorseLocomotion")
 	UnregisterForAnimationEvent(Game.GetPlayer(), "HorseIdle")
 	Dismount(false)
+EndFunction
+
+; FIX patch (compat followers) : coupe (ou rend) le cheval personnel géré par un autre mod pendant le duo.
+Function CompatNoHorse(Actor akActor, bool abExclude) global
+	NFFNoHorse(akActor, abExclude)
+	SofiaNoHorse(akActor, abExclude)
+EndFunction
+
+; FIX patch (compat Sofia) : toutes les 10 s, SofiaCatchUpNewScript lance la scène « monter sur son cheval » si le
+; joueur est en selle et que Sofia ne l'est pas, ce qui est le cas d'un passager RSE. Ce script ne le fait que si le
+; global SofiaHorseEnabled (0x0421DE) vaut 1. RSE le passe à 2 : Sofia ne teste que « == 1 », et son MCM écrit
+; seulement 0 ou 1, donc 2 veut dire « coupé par RSE ». RSE ne rend que ce 2. Sans Sofia, rien ne se passe.
+Function SofiaNoHorse(Actor akActor, bool abExclude) global
+	if (akActor == None) || (Game.GetModByName("SofiaFollower.esp") == 255)
+		return
+	endif
+	if akActor.GetActorBase() != (Game.GetFormFromFile(0x0012C4, "SofiaFollower.esp") as ActorBase)	; JJSofiaFollower
+		return
+	endif
+	GlobalVariable horseEnabled = Game.GetFormFromFile(0x0421DE, "SofiaFollower.esp") as GlobalVariable
+	if horseEnabled == None
+		return
+	endif
+	if abExclude
+		if horseEnabled.GetValueInt() == 1
+			horseEnabled.SetValueInt(2)
+		endif
+		Scene mountScene = Game.GetFormFromFile(0x0447B3, "SofiaFollower.esp") as Scene	; JJSofiaMountHorseScene
+		if mountScene && mountScene.IsPlaying()
+			mountScene.Stop()
+		endif
+	elseif horseEnabled.GetValueInt() == 2
+		horseEnabled.SetValueInt(1)
+	endif
 EndFunction
 
 ; FIX patch (compat NFF) : Nether's Follower Framework donne un cheval aux followers sauf s'ils sont dans

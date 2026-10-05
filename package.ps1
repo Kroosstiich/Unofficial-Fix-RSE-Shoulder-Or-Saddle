@@ -4,7 +4,7 @@ Assemble l'archive FOMOD du patch « RSE - Shoulder Or Saddle - Unofficial Patch
 Prérequis : build.ps1 (DLL) et Papyrus\compile.ps1 (scripts) déjà exécutés.
 Sortie : release\RSE - Shoulder Or Saddle - Unofficial Patch Fix-<version>.7z
 #>
-param([string]$Version = "1.0.0")
+param([string]$Version = "1.0.1")
 $ErrorActionPreference = "Stop"
 $Root = $PSScriptRoot
 $Stage = Join-Path $Root "release\fomod-build"
@@ -43,6 +43,13 @@ Copy-To (Join-Path $Papyrus "out\Scripts\rshFixOptions.pex") (Join-Path $Stage "
 Copy-To (Join-Path $Papyrus "Source\rshFixOptions.psc") (Join-Path $Stage "Camera\ThirdPerson\Source\scripts\rshFixOptions.psc")
 Copy-To (Join-Path $Papyrus "out-options\KeepFirstPerson\Scripts\rshFixOptions.pex") (Join-Path $Stage "Camera\FirstPerson\Scripts\rshFixOptions.pex")
 Copy-To (Join-Path $Papyrus "Options\KeepFirstPerson\Source\rshFixOptions.psc") (Join-Path $Stage "Camera\FirstPerson\Source\scripts\rshFixOptions.psc")
+
+# Option compatibilité Sofia : plugin ESL généré à partir de l'ESP d'origine de RSE
+$localPaths = Join-Path $Root "local.paths.ps1"
+if (Test-Path $localPaths) { . $localPaths }
+$rseEsp = Join-Path $env:RSE_MODS_PATH "RSE - Shoulder Or Saddle\RSE-ShoulderOrSaddle.esp"
+& py -3.12 (Join-Path $Root "Plugin\build_plugin.py") $rseEsp (Join-Path $Stage "Compat\Sofia")
+if ($LASTEXITCODE -ne 0) { throw "Échec de la génération de RSE-SofiaDialogueFix.esp" }
 
 # Traduction française corrigée
 $json = "SKSE\Plugins\DynamicStringDistributor\RSE-ShoulderOrSaddle.esp\french.dsd.json"

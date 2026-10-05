@@ -2,7 +2,7 @@
 <fomod>
   <Name>RSE - Shoulder Or Saddle - Unofficial Patch Fix</Name>
   <Author>Kroosstii</Author>
-  <Version MachineVersion="1.0.0">1.0.0</Version>
+  <Version MachineVersion="1.0.1">1.0.1</Version>
   <Description>Unofficial fix - the original mod RSE - Shoulder Or Saddle 1.4 (Hunk92) is required. Skyrim 1.7.104 compatibility and bug fixes.</Description>
   <Groups>
     <element>Patches</element>

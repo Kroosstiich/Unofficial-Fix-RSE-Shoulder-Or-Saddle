@@ -167,6 +167,7 @@ void StartAttachmentHorse(RE::StaticFunctionTag*, RE::Actor* actorA, RE::BSFixed
     data.afRotationZ = rotationZ;  // NOUVEAU
 
     data.isAuthorized = true;  // Autoriser la fonction B à tourner
+    g_attachedActorID = actorB->GetFormID();  // FIX patch (N-26) : son IA ne le déplace plus
     lock.unlock();
 
     ActorCollisionManager::ManageActorCollision(actorB, false);
@@ -189,6 +190,7 @@ void StopAttachmentHorse(RE::StaticFunctionTag*, RE::Actor*) {
         actorBPtr = data.actorB.get();
         // Désautoriser la fonction B
         data.Reset();
+        g_attachedActorID = 0;  // FIX patch (N-26)
     }
 
     if (actorBPtr) {

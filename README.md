@@ -34,6 +34,7 @@ are not included: get them from the original mod page.
 | `Papyrus/Source/` | Modified Papyrus scripts of the original mod, plus `rshFixOptions` (camera option) |
 | `Papyrus/AddonFemale/Source/` | Modified `rshPickUpScript` for the "ShoulderCarryState - female" add-on |
 | `Papyrus/Options/` | Script variants installed by the FOMOD |
+| `Plugin/build_plugin.py` | Generates the optional `RSE-SofiaDialogueFix.esp` (ESL) from the original plugin: "Always share my ride" for Sofia |
 | `Translation/French/` | Repaired copy of the original French DSD translation file (JSON syntax error fixed) |
 | `fomod/` | FOMOD installer |
 | `build.ps1`, `Papyrus/compile.ps1`, `package.ps1` | Build, Papyrus compilation and packaging scripts |
@@ -50,6 +51,8 @@ Every change in the sources is marked with a `FIX patch` comment (comments are i
   no longer wraps engine code in SEH and no longer logs on every frame.
 - Attachment data uses actor handles and reference-counted nodes, is reset on `kPreLoadGame` / `kNewGame`,
   is protected by a mutex, and uses the third-person skeleton.
+- The attached passenger's own AI movement is ignored while it is placed on the saddle (no more horse pushed around
+  by a talking passenger).
 
 **Papyrus scripts**
 - Deferred initialisation (`rshUpdateManagerScript`): spells, perks and MCM are available on a new game.
@@ -58,7 +61,9 @@ Every change in the sources is marked with a `FIX patch` comment (comments are i
   after the captive's alarm; the horse stops fighting the captive on its back.
 - SkyPrompt made truly optional, with far fewer native calls per crosshair change.
 - Built-in compatibility with Nether's Follower Framework (`nwsFF_NoHorseFac`, only factions added by the patch
-  are removed).
+  are removed) and Sofia (`SofiaHorseEnabled` set to 2 while she rides with the player, restored afterwards).
+- MCM: "NPCs speak random lines" shows its real value; SkyPrompt events other than "accepted" are ignored early;
+  a horse dying with a carried actor releases both attachments.
 - Optional switch to third person when picking someone up.
 
 ## Building
@@ -71,9 +76,11 @@ Requirements: Visual Studio with the C++ tools (MSVC 14.44), vcpkg, 7-Zip, Pytho
    $env:VCPKG_ROOT = "<path to vcpkg>"
    $env:SKYRIM_PATH = "<Skyrim Special Edition folder>"
    $env:RSE_MODS_PATH = "<Mod Organizer 2 mods folder>"
+   $env:SKYUI_SDK_PATH = "<SkyUI script sources>"
    ```
    `RSE_MODS_PATH` must contain the original mod (`RSE - Shoulder Or Saddle`), `Skyrim Script Extender (SKSE64) DATA`
    and `SkyPrompt` (Papyrus sources used as imports).
+   `SKYUI_SDK_PATH` must point to the full SkyUI script sources (needed to compile the MCM script).
 2. `./build.ps1` builds the three DLLs.
 3. `./Papyrus/compile.ps1` compiles the scripts.
 4. `./package.ps1` builds the FOMOD archive in `release/`.
