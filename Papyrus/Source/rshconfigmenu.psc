@@ -118,6 +118,8 @@ EndEvent
 Event OnOptionSelect(int option)
 	if (option == oidOptionMenu)
 		SetHorseMenu(!RSHUM.UseHorseMenu)
+	elseif (option == oidOptionToken)	; FIX patch (P-12) : la case du médaillon (= !UseHorseMenu) n'avait aucune action
+		SetHorseMenu(!RSHUM.UseHorseMenu)
 	elseif (option == oidOptionSpell)
 		SetHorseSpell(!RSHUM.UseHorseSpell)
 	elseif (option == oidOptionMissingSpell)

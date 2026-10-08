@@ -4,7 +4,7 @@ Assemble l'archive FOMOD du patch « RSE - Shoulder Or Saddle - Unofficial Patch
 Prérequis : build.ps1 (DLL) et Papyrus\compile.ps1 (scripts) déjà exécutés.
 Sortie : release\RSE - Shoulder Or Saddle - Unofficial Patch Fix-<version>.7z
 #>
-param([string]$Version = "1.0.1")
+param([string]$Version = "1.0.2")
 $ErrorActionPreference = "Stop"
 $Root = $PSScriptRoot
 $Stage = Join-Path $Root "release\fomod-build"

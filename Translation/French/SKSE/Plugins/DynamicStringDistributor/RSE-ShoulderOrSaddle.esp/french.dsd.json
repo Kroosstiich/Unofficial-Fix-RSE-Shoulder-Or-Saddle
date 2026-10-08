@@ -30,6 +30,13 @@
   }
 ,
   {
+    "form_id": "00000801|RSE-ShoulderOrSaddle.esp",
+    "type": "PERK EPF2",
+    "index": 0,
+    "string": "Monter à cheval avec le compagnon"
+  }
+,
+  {
     "form_id": "0000083A|RSE-ShoulderOrSaddle.esp",
     "type": "MISC FULL",
     "string": "Médaillon de cheval pour companion"

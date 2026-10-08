@@ -34,7 +34,7 @@ are not included: get them from the original mod page.
 | `Papyrus/Source/` | Modified Papyrus scripts of the original mod, plus `rshFixOptions` (camera option) |
 | `Papyrus/AddonFemale/Source/` | Modified `rshPickUpScript` for the "ShoulderCarryState - female" add-on |
 | `Papyrus/Options/` | Script variants installed by the FOMOD |
-| `Plugin/build_plugin.py` | Generates the optional `RSE-SofiaDialogueFix.esp` (ESL) from the original plugin: "Always share my ride" for Sofia |
+| `Plugin/build_plugin.py` | Generates the optional `RSE-SofiaDialogueFix.esp` (ESL) from the original plugin: Sofia recognized as a follower ("Always share my ride" dialogue, medallion, popup menu) |
 | `Translation/French/` | Repaired copy of the original French DSD translation file (JSON syntax error fixed) |
 | `fomod/` | FOMOD installer |
 | `build.ps1`, `Papyrus/compile.ps1`, `package.ps1` | Build, Papyrus compilation and packaging scripts |
@@ -62,7 +62,7 @@ Every change in the sources is marked with a `FIX patch` comment (comments are i
 - SkyPrompt made truly optional, with far fewer native calls per crosshair change.
 - Built-in compatibility with Nether's Follower Framework (`nwsFF_NoHorseFac`, only factions added by the patch
   are removed) and Sofia (`SofiaHorseEnabled` set to 2 while she rides with the player, restored afterwards).
-- MCM: "NPCs speak random lines" shows its real value; SkyPrompt events other than "accepted" are ignored early;
+- MCM: "NPCs speak random lines" shows its real value; the medallion option can be unchecked; SkyPrompt events other than "accepted" are ignored early;
   a horse dying with a carried actor releases both attachments.
 - Optional switch to third person when picking someone up.
 

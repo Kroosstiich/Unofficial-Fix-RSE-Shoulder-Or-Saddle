@@ -114,10 +114,12 @@ Function RideWithFollower(ObjectReference horse)
 	if (horse != None)
 		horse.Activate(Game.GetPlayer())
 		follower = Follower1NoToken.getActorRef()
-		Follower3.ForceRefTo(follower)
-		follower.RemoveItem(rshHorseFriendToken, 999, true)
-		follower.RemoveItem(rshHorseCrimeToken, 999, true)
-		follower.AddItem(rshHorseFriendToken)
+		if follower	; FIX patch (P-13) : aucun follower éligible à proximité → ForceRefTo/RemoveItem/AddItem sur None
+			Follower3.ForceRefTo(follower)
+			follower.RemoveItem(rshHorseFriendToken, 999, true)
+			follower.RemoveItem(rshHorseCrimeToken, 999, true)
+			follower.AddItem(rshHorseFriendToken)
+		endif
 	endif
 	
 	Follower1NoToken.Clear()
